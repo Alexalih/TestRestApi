@@ -14,10 +14,11 @@ public abstract class AbstractTest {
 
     @BeforeAll
     static void unitTest() throws IOException {
-     config = new FileInputStream("src/main/resources/my.properties");
+     config = new FileInputStream("./src/main/resources/my.properties");
      prop.load(config);
      baseUrl = prop.getProperty("baseUrl");
      apiKey = prop.getProperty("apiKey");
+     searchRecipes = prop.getProperty("searchRecipes");
     }
 
     public static String getBaseUrl() {
