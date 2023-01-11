@@ -1,8 +1,8 @@
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
-//import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class SpoonacularTests extends AbstractTest{
     @Test
@@ -25,6 +25,7 @@ public class SpoonacularTests extends AbstractTest{
                 .assertThat()
                 .statusCode(401)
                 .extract().body().jsonPath();
+        assertThat(responce.get("status"), equalTo("failure"));
 
 
 
